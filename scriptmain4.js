@@ -66,6 +66,16 @@ function iniciarSonidoMusicaDesdeIntro() {
 
 window.iniciarMusicaDesdeIntro = iniciarSonidoMusicaDesdeIntro;
 
+// Slideshow automático con fade
+const slides = document.querySelectorAll('.slideshow img');
+let currentSlide = 0;
+
+setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+}, 2500);
+
 
 (function () {
     emailjs.init("O9TA18-zps7iaEptM");

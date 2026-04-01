@@ -73,26 +73,23 @@
         </div>
     </section>
 
-    <!-- ── 4. GALERÍA — filmstrip horizontal ── -->
+    <!-- ── 4. GALERÍA — slideshow automático ── -->
     <section class="gallery-section">
         <h2 class="section-title">Nuestro compromiso</h2>
-        <p class="section-subtitle">desliza para ver más →</p>
+        <p class="section-subtitle">un vistazo a nuestro camino</p>
 
-        <div class="filmstrip-wrapper" id="filmstrip">
-            <div class="filmstrip">
-                <div class="photo"><img src="fotos 4/1.jpg" alt="Compromiso"></div>
-                <div class="photo"><img src="fotos 4/2.jpg" alt="Compromiso"></div>
-                <div class="photo"><img src="fotos 4/3.jpg" alt="Compromiso"></div>
-                <div class="photo"><img src="fotos 4/4.jpg" alt="Compromiso"></div>
-                <div class="photo"><img src="fotos 4/5.jpg" alt="Compromiso"></div>
-                <div class="photo"><img src="fotos 4/6.jpg" alt="Compromiso"></div>
-                <div class="photo"><img src="fotos 4/7.jpg" alt="Compromiso"></div>
-                <div class="photo"><img src="fotos 4/8.jpg" alt="Compromiso"></div>
-                <div class="photo"><img src="fotos 4/9.jpg" alt="Compromiso"></div>
-                <div class="photo"><img src="fotos 4/10.jpg" alt="Compromiso"></div>
-            </div>
+        <div class="slideshow">
+            <img src="fotos 4/1.jpg" class="active" alt="Compromiso">
+            <img src="fotos 4/2.jpg" alt="Compromiso">
+            <img src="fotos 4/3.jpg" alt="Compromiso">
+            <img src="fotos 4/4.jpg" alt="Compromiso">
+            <img src="fotos 4/5.jpg" alt="Compromiso">
+            <img src="fotos 4/6.jpg" alt="Compromiso">
+            <img src="fotos 4/7.jpg" alt="Compromiso">
+            <img src="fotos 4/8.jpg" alt="Compromiso">
+            <img src="fotos 4/9.jpg" alt="Compromiso">
+            <img src="fotos 4/10.jpg" alt="Compromiso">
         </div>
-        <p class="filmstrip-hint">· · ·</p>
     </section>
 
     <!-- ── 5. CUENTA REGRESIVA ── -->
@@ -160,11 +157,10 @@
     <div class="tarjeta" id="tarjeta">
         <div class="contenido-tarjeta">
             <div class="lluvia-sobres">
-                <img src="fotos 4/sobre-cerrado.PNG" alt="Sobre"
-                    style="width:200px; margin-bottom:-40px; margin-top:-50px;">
-                <p style="font-family:'Great Vibes', cursive; font-size:2rem; margin:0;">Lluvia de Sobres</p>
-                <p>(y tambien de cartas)</p>
-                <p>Comparte un pedacito de ti con nosotros. Nos encantaría recibir también una carta con un consejo
+                <img src="fotos 4/sobre-cerrado.PNG" alt="Sobre" class="lluvia-sobres-img">
+                <h2 class="lluvia-sobres-titulo">Lluvia de Sobres</h2>
+                <p class="lluvia-sobres-sub">(y tambien de cartas)</p>
+                <p class="lluvia-sobres-texto">Comparte un pedacito de ti con nosotros. Nos encantaría recibir también una carta con un consejo
                     tuyo: de la vida, del amor o de lo que te nazca del corazón, para este nuevo camino que comenzamos
                     como familia.</p>
             </div>
@@ -238,52 +234,6 @@
     <!-- ── SCRIPTS ── -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="scriptmain4.js"></script>
-    <script>
-        /* ── intro ── */
-        const sello = document.getElementById('sello');
-        const botonContinuar = document.getElementById('btn-continuar');
-        const sobreCerrado = document.getElementById('sobre-cerrado');
-        const sobreAbierto = document.getElementById('sobre-abierto');
-        const tarjetaIntro = document.getElementById('tarjeta-intro');
-        const overlay = document.getElementById('intro-overlay');
-        const mainContent = document.getElementById('main-content');
-
-        function iniciarAnimacion() {
-            sello.classList.add('girar-desvanecer');
-            setTimeout(() => { sobreCerrado.style.opacity = '0'; sobreAbierto.style.opacity = '1'; }, 1000);
-            setTimeout(() => { tarjetaIntro.classList.add('subir-tarjeta'); }, 1800);
-            setTimeout(() => { botonContinuar.classList.add('mostrar-boton'); }, 2800);
-        }
-
-        function continuarIntro() {
-            overlay.classList.add('ocultar-overlay');
-            mainContent.classList.remove('hidden');
-            if (window.iniciarMusicaDesdeIntro) window.iniciarMusicaDesdeIntro();
-            setTimeout(() => { overlay.style.display = 'none'; }, 750);
-        }
-
-        sello.addEventListener('click', iniciarAnimacion);
-        botonContinuar.addEventListener('click', continuarIntro);
-
-        /* ── filmstrip drag-to-scroll ── */
-        const strip = document.getElementById('filmstrip');
-        let isDown = false, startX, scrollLeft;
-
-        strip.addEventListener('mousedown', e => {
-            isDown = true;
-            strip.classList.add('grabbing');
-            startX = e.pageX - strip.offsetLeft;
-            scrollLeft = strip.scrollLeft;
-        });
-        strip.addEventListener('mouseleave', () => { isDown = false; strip.classList.remove('grabbing'); });
-        strip.addEventListener('mouseup', () => { isDown = false; strip.classList.remove('grabbing'); });
-        strip.addEventListener('mousemove', e => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - strip.offsetLeft;
-            strip.scrollLeft = scrollLeft - (x - startX) * 1.4;
-        });
-    </script>
 
     <!-- ── FOOTER ── -->
     <footer class="footer-boda">
