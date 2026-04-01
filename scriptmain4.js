@@ -1,3 +1,6 @@
+/* ============================================================
+   COUNTDOWN
+   ============================================================ */
 const weddingDate = new Date("Aug 22, 2026 15:00:00").getTime();
 
 const timer = setInterval(function () {
@@ -20,10 +23,15 @@ const timer = setInterval(function () {
     }
 }, 1000);
 
+/* ============================================================
+   MUSIC (for intro overlay — currently commented in HTML)
+   ============================================================ */
 window.addEventListener("DOMContentLoaded", () => {
     const audio = document.getElementById("miMusica");
     const btnMusica = document.getElementById("btnMusica");
     const texto = document.getElementById("texto");
+
+    if (!audio || !btnMusica || !texto) return;
 
     const debeReproducir = localStorage.getItem("reproducirMusica");
 
@@ -51,10 +59,7 @@ function iniciarSonidoMusicaDesdeIntro() {
     const audio = document.getElementById("miMusica");
     const btnMusica = document.getElementById("btnMusica");
     const texto = document.getElementById("texto");
-
-    if (!audio || !btnMusica || !texto) {
-        return;
-    }
+    if (!audio || !btnMusica || !texto) return;
 
     audio.play().then(() => {
         btnMusica.classList.add("sonando");
@@ -66,21 +71,42 @@ function iniciarSonidoMusicaDesdeIntro() {
 
 window.iniciarMusicaDesdeIntro = iniciarSonidoMusicaDesdeIntro;
 
-// Slideshow automático con fade
+/* ============================================================
+   SLIDESHOW — fade automático cada 2.5s
+   ============================================================ */
 const slides = document.querySelectorAll('.slideshow img');
 let currentSlide = 0;
 
-setInterval(() => {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add('active');
-}, 2500);
+if (slides.length > 0) {
+    setInterval(() => {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }, 2500);
+}
 
+/* ============================================================
+   SCROLL REVEAL — IntersectionObserver
+   ============================================================ */
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+});
 
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ============================================================
+   EMAILJS — RSVP form
+   ============================================================ */
 (function () {
     emailjs.init("O9TA18-zps7iaEptM");
 })();
-
 
 const btn = document.getElementById('button-send');
 
@@ -102,4 +128,3 @@ document.getElementById('rsvp-form').addEventListener('submit', function (event)
             alert('Hubo un error: ' + JSON.stringify(err));
         });
 });
-
