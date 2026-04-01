@@ -72,6 +72,34 @@ function iniciarSonidoMusicaDesdeIntro() {
 window.iniciarMusicaDesdeIntro = iniciarSonidoMusicaDesdeIntro;
 
 /* ============================================================
+   INTRO — animación sello → sobre → tarjeta → continuar
+   ============================================================ */
+const sello = document.getElementById('sello');
+const botonContinuar = document.getElementById('btn-continuar');
+const sobreCerrado = document.getElementById('sobre-cerrado');
+const sobreAbierto = document.getElementById('sobre-abierto');
+const tarjetaIntro = document.getElementById('tarjeta-intro');
+const overlay = document.getElementById('intro-overlay');
+const mainContent = document.getElementById('main-content');
+
+function iniciarAnimacion() {
+    sello.classList.add('girar-desvanecer');
+    setTimeout(() => { sobreCerrado.style.opacity = '0'; sobreAbierto.style.opacity = '1'; }, 1000);
+    setTimeout(() => { tarjetaIntro.classList.add('subir-tarjeta'); }, 1800);
+    setTimeout(() => { botonContinuar.classList.add('mostrar-boton'); }, 2800);
+}
+
+function continuarIntro() {
+    overlay.classList.add('ocultar-overlay');
+    if (mainContent) mainContent.classList.remove('hidden');
+    if (window.iniciarMusicaDesdeIntro) window.iniciarMusicaDesdeIntro();
+    setTimeout(() => { overlay.style.display = 'none'; }, 750);
+}
+
+if (sello) sello.addEventListener('click', iniciarAnimacion);
+if (botonContinuar) botonContinuar.addEventListener('click', continuarIntro);
+
+/* ============================================================
    SLIDESHOW — fade automático cada 2.5s
    ============================================================ */
 const slides = document.querySelectorAll('.slideshow img');
