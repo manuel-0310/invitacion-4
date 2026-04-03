@@ -100,18 +100,28 @@ if (sello) sello.addEventListener('click', iniciarAnimacion);
 if (botonContinuar) botonContinuar.addEventListener('click', continuarIntro);
 
 /* ============================================================
-   SLIDESHOW — fade automático cada 2.5s
+   SLIDESHOW — navegación manual con flechas (fade transition)
    ============================================================ */
-const slides = document.querySelectorAll('.slideshow img');
-let currentSlide = 0;
+document.querySelectorAll('.slideshow').forEach(show => {
+    const imgs = show.querySelectorAll('img');
+    const counter = show.querySelector('.slide-counter');
+    let idx = 0;
 
-if (slides.length > 0) {
-    setInterval(() => {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-    }, 2500);
-}
+    function updateSlide(newIdx) {
+        imgs[idx].classList.remove('active');
+        idx = newIdx;
+        imgs[idx].classList.add('active');
+        if (counter) counter.textContent = (idx + 1) + ' / ' + imgs.length;
+    }
+
+    show.querySelector('.slide-next').addEventListener('click', () => {
+        updateSlide((idx + 1) % imgs.length);
+    });
+
+    show.querySelector('.slide-prev').addEventListener('click', () => {
+        updateSlide((idx - 1 + imgs.length) % imgs.length);
+    });
+});
 
 /* ============================================================
    SCROLL REVEAL — IntersectionObserver

@@ -74,23 +74,16 @@
         </div>
     </section>
 
-    <!-- ── 4. GALERÍA — slideshow automático ── -->
-    <section class="gallery-section">
-        <div class="reveal">
-            <h2 class="section-title">Nuestro compromiso</h2>
-            <p class="section-subtitle">un vistazo a nuestro camino</p>
-        </div>
-        <div class="slideshow reveal reveal-delay-1">
-            <img src="fotos 4/1.jpg" class="active" alt="Compromiso">
-            <img src="fotos 4/2.jpg" alt="Compromiso">
-            <img src="fotos 4/3.jpg" alt="Compromiso">
-            <img src="fotos 4/4.jpg" alt="Compromiso">
-            <img src="fotos 4/5.jpg" alt="Compromiso">
-            <img src="fotos 4/6.jpg" alt="Compromiso">
-            <img src="fotos 4/7.jpg" alt="Compromiso">
-            <img src="fotos 4/8.jpg" alt="Compromiso">
-            <img src="fotos 4/9.jpg" alt="Compromiso">
-            <img src="fotos 4/10.jpg" alt="Compromiso">
+    <!-- ── 4A. GALERÍA 1 — Estilo A: círculos glass ── -->
+    <section class="gallery-section style-b">
+        <div class="slideshow">
+            <img src="fotos 4/2.jpg" class="active" alt="Paula & Mateo">
+            <img src="fotos 4/3.jpg" alt="Paula & Mateo">
+            <img src="fotos 4/4.jpg" alt="Paula & Mateo">
+            <img src="fotos 4/6.jpg" alt="Paula & Mateo">
+            <img src="fotos 4/5.jpg" alt="Paula & Mateo">
+            <button class="slide-arrow slide-prev" aria-label="Anterior">&#10094;</button>
+            <button class="slide-arrow slide-next" aria-label="Siguiente">&#10095;</button>
         </div>
     </section>
 
@@ -108,6 +101,7 @@
         </div>
         <p class="wedding-date reveal reveal-delay-2">22 de Agosto, 2026 &nbsp;·&nbsp; 3:00 PM</p>
     </section>
+
 
     <!-- ── 6. NUESTRO GRAN DÍA ── -->
     <section class="timeline-section">
@@ -158,6 +152,20 @@
         </div>
     </section>
 
+    <!-- ── 4B. GALERÍA 2 — Estilo B: barras laterales ── -->
+    <section class="gallery-section style-b">
+        <div class="slideshow">
+            <img src="fotos 4/9.jpg" class="active" alt="Paula & Mateo">
+            <img src="fotos 4/8.jpg" alt="Paula & Mateo">
+            <img src="fotos 4/7.jpg" alt="Paula & Mateo">
+            <img src="fotos 4/11.jpg" alt="Paula & Mateo">
+            <img src="fotos 4/10.jpg" alt="Paula & Mateo">
+            <button class="slide-arrow slide-prev" aria-label="Anterior">&#10094;</button>
+            <button class="slide-arrow slide-next" aria-label="Siguiente">&#10095;</button>
+        </div>
+    </section>
+
+
     <!-- ── 8. LLUVIA DE SOBRES ── -->
     <div class="tarjeta" id="tarjeta">
         <div class="contenido-tarjeta">
@@ -178,11 +186,11 @@
             <h2 class="section-title">Ubicación</h2>
             <p class="location-name"><b>Bioparque Guatika - Tibasosa</b></p>
         </div>
-        <!--
+        
         <div class="location-image reveal reveal-delay-1">
-            <img src="fotos 4/hotel.jpg" alt="Hotel Punta Larga" class="hacienda-img">
+            <img src="fotos 4/lugar.jpg" alt="Hotel Punta Larga" class="hacienda-img">
         </div>
-    -->
+    
         <div class="map-container reveal reveal-delay-2">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3969.8138018696704!2d-73.00928102501342!3d5.739931994242278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6a41466c86e1dd%3A0x7fef8cc920f80740!2sBioparque%20Gu%C3%A1tika!5e0!3m2!1ses-419!2sco!4v1774999914552!5m2!1ses-419!2sco"
@@ -191,6 +199,19 @@
         </div>
     </section>
 
+    <!-- ── 4C. GALERÍA 3 — Estilo C: pill inferior ── -->
+    <section class="gallery-section style-b">
+        <div class="slideshow">
+            <img src="fotos 4/12.jpg" class="active" alt="Paula & Mateo">
+
+            <img src="fotos 4/15.jpg" alt="Paula & Mateo">
+            <img src="fotos 4/14.jpg" alt="Paula & Mateo">
+            <img src="fotos 4/13.jpg" alt="Paula & Mateo">
+            <img src="fotos 4/16.jpg" alt="Paula & Mateo">
+            <button class="slide-arrow slide-prev" aria-label="Anterior">&#10094;</button>
+            <button class="slide-arrow slide-next" aria-label="Siguiente">&#10095;</button>
+        </div>
+    </section>
     <!-- ── 10. RSVP ── -->
     <section class="rsvp-section">
         <div class="reveal">
@@ -216,6 +237,12 @@
                 <div class="form-group">
                     <label for="age">Edad *</label>
                     <input type="number" name="age" id="age" required placeholder="Tu respuesta">
+                </div>
+
+                <div class="form-group">
+                    <label for="allergies">Alergias Alimentarias</label>
+                    <textarea name="allergies" id="allergies" rows="3"
+                        placeholder="Si no tienes, escribe 'Ninguna'"></textarea>
                 </div>
 
                 <div class="form-group">
