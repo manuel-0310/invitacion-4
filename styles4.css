@@ -449,7 +449,7 @@ h2.section-title {
 
 /* ====== LLUVIA DE SOBRES (sage verde = contraste orgánico) ====== */
 .tarjeta {
-    background: var(--sage);
+    background: var(--navy-medio);
     padding: 80px var(--pad);
     position: relative;
     overflow: hidden;
@@ -460,7 +460,7 @@ h2.section-title {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 70% 20%, rgba(255,255,255,0.08) 0%, transparent 60%);
+    background: radial-gradient(ellipse at 50% 0%, rgba(93,123,159,0.12) 0%, transparent 55%);
     pointer-events: none;
 }
 
@@ -749,7 +749,8 @@ h2.section-title {
 }
 
 /* ====== LEGACY / INTRO (comentado en HTML) ====== */
-#intro-overlay { position: fixed; inset: 0; z-index: 1000; display: flex; justify-content: center; align-items: center; background: var(--navy); transition: opacity 0.7s; }
+#intro-overlay { position: fixed; inset: 0; z-index: 1000; display: flex; justify-content: center; align-items: center;     background: url('fotos 4/fondo.jpeg') no-repeat center center / cover;
+    ; transition: opacity 0.7s; }
 #intro-overlay.ocultar-overlay { opacity: 0; pointer-events: none; }
 .escena { position: relative; width: 420px; height: 320px; display: flex; justify-content: center; align-items: center; }
 #sello { position: absolute; z-index: 10; width: 200px; cursor: pointer; transition: opacity 1s, transform 1.5s; }
