@@ -724,7 +724,7 @@ h2.section-title {
 #intro-overlay .intro-bg { display: none; }
 #intro-overlay.ocultar-overlay { opacity: 0; pointer-events: none; }
 .escena { position: relative; width: 420px; height: 320px; display: flex; justify-content: center; align-items: center; }
-#sello { position: absolute; z-index: 10; width: 200px; cursor: pointer; transition: opacity 1s, transform 1.5s; }
+#sello { position: absolute; z-index: 10; width: 200px; cursor: pointer; transition: opacity 1s, transform 1.5s;filter: hue-rotate(205deg); } 
 .girar-desvanecer { transform: rotate(360deg) scale(1.2); opacity: 0; pointer-events: none; }
 .sobre { position: absolute; width: 180%; max-width: 720px; transition: opacity 0.8s; }
 #sobre-abierto { opacity: 0; }
