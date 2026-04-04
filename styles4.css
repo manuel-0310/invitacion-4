@@ -245,21 +245,21 @@ h2.section-title {
     opacity: 1;
 }
 
-/* Flechas de navegación */
+/* Flechas de navegación — Estilo barras verticales */
 .slide-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: 3;
-    background: rgba(255,255,255,0.12);
+    width: 32px;
+    height: 80px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.08);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.12);
     color: #fff;
-    font-size: 1.3rem;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: background 0.3s;
     display: flex;
@@ -268,62 +268,9 @@ h2.section-title {
     line-height: 1;
 }
 
-/* --- Estilo A: círculos glass (default) --- */
-.style-a .slide-prev { left: 14px; }
-.style-a .slide-next { right: 14px; }
-.style-a .slide-arrow:hover { background: rgba(255,255,255,0.28); }
-
-/* --- Estilo B: barras laterales verticales --- */
-.style-b .slide-arrow {
-    width: 32px;
-    height: 80px;
-    border-radius: 6px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
-    font-size: 1.1rem;
-}
-.style-b .slide-prev { left: 10px; }
-.style-b .slide-next { right: 10px; }
-.style-b .slide-arrow:hover { background: rgba(255,255,255,0.22); }
-
-/* --- Estilo C: pill inferior con contador --- */
-.style-c .slide-arrow {
-    position: static;
-    transform: none;
-    width: 36px;
-    height: 36px;
-    font-size: 1rem;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.15);
-}
-.style-c .slide-arrow:hover { background: rgba(255,255,255,0.25); }
-
-.slide-pill {
-    position: absolute;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background: rgba(30,42,56,0.55);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 50px;
-    padding: 8px 16px;
-}
-
-.slide-counter {
-    font-family: var(--font-serif);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    color: rgba(255,255,255,0.7);
-    min-width: 36px;
-    text-align: center;
-}
+.slide-prev { left: 10px; }
+.slide-next { right: 10px; }
+.slide-arrow:hover { background: rgba(255,255,255,0.22); }
 
 /* ====== CUENTA REGRESIVA (minimalista, fondo claro) ====== */
 .countdown-section {
@@ -445,6 +392,30 @@ h2.section-title {
     font-size: 0.95rem;
     margin-top: 20px;
     letter-spacing: 0.5px;
+}
+
+.btn-inspiracion {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 14px 36px;
+    background: var(--azul);
+    color: var(--blanco);
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-serif);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-inspiracion:hover {
+    background: var(--navy);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(30,42,56,0.3);
 }
 
 /* ====== LLUVIA DE SOBRES (sage verde = contraste orgánico) ====== */
@@ -748,9 +719,9 @@ h2.section-title {
     margin-top: 4px;
 }
 
-/* ====== LEGACY / INTRO (comentado en HTML) ====== */
-#intro-overlay { position: fixed; inset: 0; z-index: 1000; display: flex; justify-content: center; align-items: center;     background: url('fotos 4/fondo.jpeg') no-repeat center center / cover;
-    ; transition: opacity 0.7s; }
+/* ====== LEGACY / INTRO ====== */
+#intro-overlay { position: fixed; inset: 0; z-index: 1000; display: flex; justify-content: center; align-items: center; background: var(--navy); transition: opacity 0.7s; overflow: hidden; }
+#intro-overlay .intro-bg { display: none; }
 #intro-overlay.ocultar-overlay { opacity: 0; pointer-events: none; }
 .escena { position: relative; width: 420px; height: 320px; display: flex; justify-content: center; align-items: center; }
 #sello { position: absolute; z-index: 10; width: 200px; cursor: pointer; transition: opacity 1s, transform 1.5s; }
@@ -769,6 +740,30 @@ h2.section-title {
 .divider { padding: 28px var(--pad); }
 .divider img { width: 360px; max-width: 100%; opacity: 0.55; }
 .padres-section { display: none; }
+
+/* ====== INTRO MÓVIL — fondo.jpeg con zoom ====== */
+@keyframes introZoom {
+    0%   { transform: scale(1);   }
+    100% { transform: scale(1.15); }
+}
+
+@media (max-width: 768px) {
+    #intro-overlay { background: transparent; }
+    #intro-overlay .intro-bg {
+        display: block;
+        position: absolute;
+        inset: 0;
+        background: url('fotos 4/fondo.jpeg') no-repeat center center / cover;
+        animation: introZoom 20s ease-out forwards;
+    }
+    #intro-overlay .intro-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(30,42,56,0.55);
+    }
+    .escena { z-index: 2; }
+}
 
 /* ====== RESPONSIVE ====== */
 @media (max-width: 768px) {
